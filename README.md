@@ -21,14 +21,14 @@ Build (Linux):
 
 ```bash
 mkdir -p build && cd build
-cmake .. -Donnxruntime_DIR=/path/to/onnxruntime/lib/cmake/onnxruntime
-cmake --build . -j
+cmake ..
+make
 ```
 
 3. Run (model file expected in the current directory or pass path as first arg):
 
 ```bash
-./onnx_cpp_infer /path/to/gbdt_iris.onnx
+./onnx_cpp_infer
 ```
 
 Notes:
@@ -62,3 +62,7 @@ cd onnxruntime
 ./build.sh --skip_tests --use_tensorrt --config Release --build_shared_lib --parallel --tensorrt_home /path/to/TensorRT
 ```
 After compilation, the library files will be generated in the onnxruntime/build/Linux/Release/ directory. In the CMakeLists.txt, set ONNXRUNTIME_ROOT_PATH to this path.
+
+3. How to solve the problem about anaconda when building onnxruntime with ./build.sh
+
+Disable the anaconda environment by editing the "~./bashrc" and removing code about ananconda path
