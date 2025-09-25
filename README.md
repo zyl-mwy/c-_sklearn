@@ -1,5 +1,7 @@
 # ONNX Runtime C++ inference example
 
+From [csdn_link](https://blog.csdn.net/weixin_44984705/article/details/135236267), DeepSeek and Cursor. 
+
 This small project shows how to run the same ONNX inference from C++ as the Python snippet:
 
 Python example:
