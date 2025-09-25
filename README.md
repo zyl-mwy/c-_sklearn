@@ -65,4 +65,4 @@ After compilation, the library files will be generated in the onnxruntime/build/
 
 3. How to solve the problem about anaconda when building onnxruntime with ./build.sh
 
-Disable the anaconda environment by editing the "~./bashrc" and removing code about ananconda path
+Disable the anaconda environment by editing the "~./bashrc" and removing code about ananconda path. And then reboot your Ubuntu System.
