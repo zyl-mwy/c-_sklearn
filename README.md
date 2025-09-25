@@ -34,3 +34,31 @@ cmake --build . -j
 Notes:
 - If CMake cannot find ONNX Runtime, set `ONNXRUNTIME_INCLUDE_DIR` and `ONNXRUNTIME_LIB_DIR` when invoking CMake.
 - The example uses the C++ API (onnxruntime_cxx_api.h).
+
+# How to Prepare
+1. Run "main.py" to get "gbdt_iris.onnx"
+```bash
+pip install scikit-learn
+pip install skl2onnx
+pip install numpy
+pip install onnxruntime
+python main.py
+```
+
+2. Install "onnxruntime" environment for "c++"
+```bash
+sudo apt install build-essential cmake git libpython3-dev python3-pip
+
+git clone --recursive https://github.com/Microsoft/onnxruntime
+cd onnxruntime
+
+# For CPU
+./build.sh --skip_tests --config Release --build_shared_lib --parallel
+
+# For GPU
+./build.sh --skip_tests --use_cuda --config Release --build_shared_lib --parallel --cuda_home /usr/local/cuda --cudnn_home /usr/local/cuda
+
+# For TensorRT
+./build.sh --skip_tests --use_tensorrt --config Release --build_shared_lib --parallel --tensorrt_home /path/to/TensorRT
+```
+After compilation, the library files will be generated in the onnxruntime/build/Linux/Release/ directory. In the CMakeLists.txt, set ONNXRUNTIME_ROOT_PATH to this path.
